@@ -19,7 +19,7 @@ pub trait NodeGene: std::clone::Clone {
     fn distance(&self, other: &Self, weight_coeff: f64) -> f64;
 }
 
-pub trait ConnectionGene<T: NodeGene> {
+pub trait ConnectionGene {
     fn get_src(&self) -> u64;
     fn get_dst(&self) -> u64;
     fn get_weight(&self) -> f64;
