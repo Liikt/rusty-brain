@@ -13,6 +13,8 @@ use crate::aggregations::AggregationFunctions;
 pub struct StandardNode {
     key: u64,
     typ: NodeType,
+    bias: f64,
+    weight: f64,
     activation_id: u8,
     aggregation_id: u8,
 }
@@ -22,6 +24,8 @@ impl StandardNode {
         StandardNode {
             key,
             typ,
+            bias: 0.0,
+            weight: 1.0,
             activation_id: 0,
             aggregation_id: 0,
         }
@@ -35,6 +39,14 @@ impl NodeGene for StandardNode {
 
     fn get_type(&self) -> NodeType {
         self.typ
+    }
+
+    fn get_bias(&self) -> f64 {
+        return self.bias
+    }
+
+    fn get_weight(&self) -> f64 {
+        self.weight
     }
 
     fn activate(&self, val: f64) -> f64 {
