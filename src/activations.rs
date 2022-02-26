@@ -1,30 +1,27 @@
 //! https://github.com/CodeReclaimers/neat-python/blob/c2b79c88667a1798bfe33c00dd8e251ef8be41fa/neat/activations.py
-
-use std::cmp::{max, min};
-
 pub struct ActivationFunctions;
 
 impl ActivationFunctions {
     pub fn sigmoid(val: f64) -> f64 {
-        let tmp = max(-60.0, min(60.0, 5.0 * val));
+        let tmp = -60.0_f64.max(60.0_f64.min(5.0 * val));
         1.0 / (1.0 + (-tmp).exp())
     }
 
     pub fn tanh(val: f64) -> f64 {
-        max(-60.0, min(60.0, 2.5 * val)).tanh()
+        -60.0_f64.max(60.0_f64.min(2.5 * val)).tanh()
     }
 
     pub fn sin(val: f64) -> f64 {
-        max(-60.0, min(60.0, 5.0 * val)).sin()
+        -60.0_f64.max(60.0_f64.min(5.0 * val)).sin()
     }
 
     pub fn gauss(val: f64) -> f64 {
-        let tmp = max(-3.4, min(3.4, val));
+        let tmp = -3.4_f64.max(3.4_f64.min(val));
         (-5.0 * tmp * tmp).exp()
     }
 
     pub fn relu(val: f64) -> f64 {
-        max(0.0, val)
+        val.max(0.0)
     }
 
     pub fn elu(val: f64) -> f64 {
@@ -42,7 +39,7 @@ impl ActivationFunctions {
     }
 
     pub fn softplus(val: f64) -> f64 {
-        let tmp = max(-60.0, min(60.0, 5.0 * val));
+        let tmp = -60.0_f64.max(60.0_f64.min(5.0 * val));
         0.2 * tmp.exp().ln_1p()
     }
 
@@ -60,11 +57,11 @@ impl ActivationFunctions {
     }
 
     pub fn log(val: f64) -> f64 {
-        max(1.0.powi(-7)).ln()
+        val.max(1.0_f64.powi(-7)).ln()
     }
 
     pub fn exp(val: f64) -> f64 {
-        max(-60.0, min(60.0, 5.0 * val)).exp()
+        -60.0_f64.max(60.0_f64.min(5.0 * val)).exp()
     }
 
     pub fn abs(val: f64) -> f64 {
@@ -72,7 +69,7 @@ impl ActivationFunctions {
     }
 
     pub fn hat(val: f64) -> f64 {
-        max(0.0, 1.0 - val);
+        0.0_f64.max(1.0 - val)
     }
 
     pub fn square(val: f64) -> f64 {
