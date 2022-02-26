@@ -15,17 +15,15 @@ pub struct StandardNode {
     typ: NodeType,
     activation_id: u8,
     aggregation_id: u8,
-    config: Rc<RefCell<Config>>
 }
 
 impl StandardNode {
-    pub fn new(key: u64, typ: NodeType, config: Rc<RefCell<Config>>) -> Self {
+    pub fn new(key: u64, typ: NodeType) -> Self {
         StandardNode {
             key,
             typ,
             activation_id: 0,
             aggregation_id: 0,
-            config
         }
     }
 }
