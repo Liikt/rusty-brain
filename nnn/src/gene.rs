@@ -56,4 +56,20 @@ impl NodeGene for StandardNode {
     fn aggregate(&self, vals: Vec<f64>) -> f64 {
         AggregationFunctions::aggregate(self.aggregation_id, vals)
     }
+
+
+    fn distance(&self, other: &StandardNode, weight_coeff: f64) -> f64 {
+        let mut tmp = 
+            (self.bias - other.bias).abs() + (self.weight - other.weight).abs();
+
+        if self.activation_id != other.activation_id {
+            tmp += 1.0;
+        }
+
+        if self.aggregation_id != other.aggregation_id {
+            tmp += 1.0;
+        }
+
+        tmp * weight_coeff
+    }
 }

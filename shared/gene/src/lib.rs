@@ -16,6 +16,7 @@ pub trait NodeGene: std::clone::Clone {
     fn get_weight(&self) -> f64;
     fn activate(&self, val: f64) -> f64;
     fn aggregate(&self, vals: Vec<f64>) -> f64;
+    fn distance(&self, other: &Self, weight_coeff: f64) -> f64;
 }
 
 pub trait ConnectionGene<T: NodeGene> {
