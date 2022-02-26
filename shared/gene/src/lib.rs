@@ -23,4 +23,7 @@ pub trait ConnectionGene {
     fn get_src(&self) -> u64;
     fn get_dst(&self) -> u64;
     fn get_weight(&self) -> f64;
+    fn get_innovation(&self) -> u64;
+    fn is_enabled(&self) -> bool;
+    fn distance(&self, other: &Self, weight_coeff: f64) -> f64;
 }
