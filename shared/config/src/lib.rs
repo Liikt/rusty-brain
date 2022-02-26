@@ -1,3 +1,4 @@
+#[derive(Debug, Clone, Copy)]
 pub struct Config {
     innovation: u64,
     aggregate_mutation_chance: f64,
