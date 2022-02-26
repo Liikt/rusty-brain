@@ -1,7 +1,4 @@
-mod aggregations;
-mod activations;
-mod config;
-mod gene;
+use nnn;
 
 fn main() {
     println!("Hello, world!");
