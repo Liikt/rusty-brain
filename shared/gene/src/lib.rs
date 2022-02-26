@@ -9,8 +9,7 @@ pub enum NodeType {
     Bias
 }
 
-pub trait NodeGene {
-    fn mutate_function(&mut self);
+pub trait NodeGene: std::clone::Clone {
     fn get_key(&self) -> u64;
     fn get_type(&self) -> NodeType;
     fn activate(&self, val: f64) -> f64;
