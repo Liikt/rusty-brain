@@ -27,10 +27,8 @@ impl StandardNode {
             config
         }
     }
-}
 
-impl NodeGene for StandardNode {
-    fn mutate_function(&mut self) {
+    pub fn mutate_function(&mut self) {
         let rand_act = (random::<f64>() / f64::MAX).abs();
         let rand_agg = (random::<f64>() / f64::MAX).abs();
 
@@ -44,7 +42,9 @@ impl NodeGene for StandardNode {
                 random::<u8>() % AggregationFunctions::get_num_funcs();
         }
     }
+}
 
+impl NodeGene for StandardNode {
     fn get_key(&self) -> u64 {
         self.key
     }
