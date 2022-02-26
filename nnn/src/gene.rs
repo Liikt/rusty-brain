@@ -28,21 +28,6 @@ impl StandardNode {
             config
         }
     }
-
-    pub fn mutate_function(&mut self) {
-        let rand_act = (random::<f64>() / f64::MAX).abs();
-        let rand_agg = (random::<f64>() / f64::MAX).abs();
-
-        if rand_act < self.config.borrow().act_mut_chance() {
-            self.activation_id = 
-                random::<u8>() % ActivationFunctions::get_num_funcs();
-        }
-
-        if rand_agg < self.config.borrow().agg_mut_chance() {
-            self.aggregation_id =
-                random::<u8>() % AggregationFunctions::get_num_funcs();
-        }
-    }
 }
 
 impl NodeGene for StandardNode {
