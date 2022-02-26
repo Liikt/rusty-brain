@@ -15,3 +15,9 @@ pub trait NodeGene: std::clone::Clone {
     fn activate(&self, val: f64) -> f64;
     fn aggregate(&self, vals: Vec<f64>) -> f64;
 }
+
+pub trait ConnectionGene<T: NodeGene> {
+    fn get_src(&self) -> u64;
+    fn get_dst(&self) -> u64;
+    fn get_weight(&self) -> f64;
+}
