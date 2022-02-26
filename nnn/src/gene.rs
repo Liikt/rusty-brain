@@ -9,6 +9,7 @@ use gene::{NodeType, NodeGene};
 use crate::activations::ActivationFunctions;
 use crate::aggregations::AggregationFunctions;
 
+#[derive(Debug, Clone)]
 pub struct StandardNode {
     key: u64,
     typ: NodeType,
